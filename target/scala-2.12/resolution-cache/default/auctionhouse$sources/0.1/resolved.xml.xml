@@ -4,7 +4,7 @@
 		module="auctionhouse$sources"
 		revision="0.1"
 		status="integration"
-		publication="20181218101036"
+		publication="20181222201126"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>

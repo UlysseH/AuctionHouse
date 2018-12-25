@@ -3,14 +3,14 @@ package core.akka
 import akka.actor.{ActorLogging, Actor, Props}
 
 //itemId -> Item case class ?
-case class Bid(bidderId: String, itemId: String, value: Double, bidId: String)
+//case class Bid(bidderId: String, itemId: String, value: Double, bidId: String)
 
 object Bidder {
   def props(bidderId: String): Props = Props(new Bidder(bidderId))
 
   final case class getActionHouseState(requestId: String)
   final case class joinAuction(requestId: String)
-  final case class placeBid(requestId: String, bid: Bid)
+  //final case class placeBid(requestId: String, bid: Bid)
 }
 
 class Bidder(bidderId: String) extends Actor with ActorLogging {
