@@ -2,7 +2,7 @@ import java.sql.Timestamp
 import java.util.Date
 
 import akka.actor._
-import core.akka.Auction.NewBid
+import core.akka.AuctionActor.NewBid
 import core.akka.{AuctionParams, AuctionSystemSupervisor}
 import core.akka.AuctionHouse.{GetAuctionHistory, NewAuction, RequestAuctioneer}
 import core.akka.BidderManager.RequestBidder

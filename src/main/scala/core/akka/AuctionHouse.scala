@@ -4,12 +4,21 @@ import akka.actor.{Actor, ActorLogging, ActorRef, Props}
 import java.sql.Timestamp
 import java.util.Date
 
-import core.akka.Auction.{BidSuccessful, NewBid, NewParams}
+import core.akka.AuctionActor.{BidSuccessful, NewBid, NewParams}
 
 import scala.Tuple3
 //utiliser collection.parallel ?
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
+
+final case class Auction(
+                          itemId: String,
+                          floorPrice: Double,
+                          incrementPolicy: Float,
+                          startDate: Timestamp,
+                          endDate: Timestamp,
+                        )
+final case class Auctions(auctions: Seq[Auction])
 
 object AuctionHouse {
   def props(): Props = Props(new AuctionHouse)
@@ -22,12 +31,18 @@ object AuctionHouse {
 
   final case class NewAuction(auctionId: String, auctionParams: AuctionParams)
 
+  final case class CreateAuction(auction: Auction)
+
+  final case class ActionPerformed(description: String)
+
   case object AuctioneerRegistered
   case object AuctionRegistered
 
   final case class Bid(bidderId: String, price: Double, timestamp: Long)
 
   final case class AuctionHistory(auctionId: String, history: ListBuffer[Bid])
+
+  final case object GetAuctions
 
   //final case class UpdatedAuctionHistory(auctionId: String, history: Seq[(String, Float, Long)])
 
@@ -42,12 +57,9 @@ class AuctionHouse extends Actor with ActorLogging {
   var actorToAuctioneerId = Map.empty[ActorRef, String]
   var actorToAuction = Map.empty[ActorRef, String]
 
-  //var auction
+  var auctions = Set.empty[Auction]
 
   var history = mutable.Map.empty[String, ListBuffer[Bid]]
-
-
-
 
   override def preStart(): Unit = log.info("Auction House started")
   override def postStop(): Unit = log.info("Auction House stopped")
@@ -66,6 +78,38 @@ class AuctionHouse extends Actor with ActorLogging {
 
     //case NewParams
 
+    case GetAuctions =>
+      sender() ! Auctions(auctions.toSeq)
+
+    case CreateAuction(auction) =>
+      val auctionId = auction.itemId
+      auctionIdToActor.get(auctionId) match {
+          //TODO: assess wether it's too late or not to change params !!
+        case Some(ref) =>
+          ref ! RequestAuction(auctionId, AuctionParams(
+            auction.floorPrice,
+            auction.incrementPolicy,
+            auction.startDate,
+            auction.endDate
+          ))
+        //ref ! NewParams(auctionParams)
+        case None =>
+          auctions += auction
+          log.info("Creating new auction actor for item {}", auctionId)
+          val auctioneerActor = context.actorOf(AuctionActor.props(auctionId), "auction-" + auctionId)
+          auctionIdToActor += auctionId -> auctioneerActor
+          actorToAuction += auctioneerActor -> auctionId
+          auctioneerActor ! RequestAuction(auctionId, AuctionParams(
+            auction.floorPrice,
+            auction.incrementPolicy,
+            auction.startDate,
+            auction.endDate
+          ))
+          sender() ! ActionPerformed(s"User ${auction.itemId} created.")
+      }
+
+
+      //TODO: remove this function
     case NewAuction(auctionId, auctionParams) =>
       auctionIdToActor.get(auctionId) match {
         case Some(ref) =>
@@ -73,7 +117,7 @@ class AuctionHouse extends Actor with ActorLogging {
           //ref ! NewParams(auctionParams)
         case None =>
           log.info("Creating new auction actor for item {}", auctionId)
-          val auctioneerActor = context.actorOf(Auction.props(auctionId), "auction-" + auctionId)
+          val auctioneerActor = context.actorOf(AuctionActor.props(auctionId), "auction-" + auctionId)
           auctionIdToActor += auctionId -> auctioneerActor
           actorToAuction += auctioneerActor -> auctionId
           auctioneerActor ! RequestAuction(auctionId, auctionParams)

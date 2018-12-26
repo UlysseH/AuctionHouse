@@ -4,7 +4,7 @@
 		module="auctionhouse_2.12"
 		revision="0.1"
 		status="integration"
-		publication="20181210155443"
+		publication="20181226002623"
 	>
 		<description>
 		AuctionHouse
@@ -35,5 +35,12 @@
 		<dependency org="com.typesafe.akka" name="akka-actor_2.12" rev="2.5.18" conf="compile->default(compile)"/>
 		<dependency org="com.typesafe.akka" name="akka-testkit_2.12" rev="2.5.18" conf="compile->default(compile)"/>
 		<dependency org="org.scalatest" name="scalatest_2.12" rev="3.0.5" conf="test->default(compile)"/>
+		<dependency org="com.typesafe.akka" name="akka-http_2.12" rev="10.0.11" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.akka" name="akka-http-spray-json_2.12" rev="10.0.11" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.akka" name="akka-http-xml_2.12" rev="10.0.11" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.akka" name="akka-stream_2.12" rev="2.5.18" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.akka" name="akka-http-testkit_2.12" rev="10.0.11" conf="test->default(compile)"/>
+		<dependency org="com.typesafe.akka" name="akka-stream-testkit_2.12" rev="2.5.18" conf="test->default(compile)"/>
+		<dependency org="org.scalatest" name="scalatest_2.12" rev="3.0.1" conf="test->default(compile)"/>
 	</dependencies>
 </ivy-module>

@@ -31,10 +31,10 @@ class AuctionSystemSupervisor extends Actor with ActorLogging {
   // No need to handle any messages
   override def receive= {
     case trackMsg @ AuctionHouse.RequestAuctioneer(_) =>  auctionHouse.get forward trackMsg
-    case trackMsg @ AuctionHouse.RequestAuction(_) =>  auctionHouse.get forward trackMsg
+    case trackMsg @ AuctionHouse.RequestAuction(_, _) =>  auctionHouse.get forward trackMsg
     case trackMsg @ BidderManager.RequestBidder(_) => bidderManager.get forward trackMsg
     case trackMsg @ AuctionHouse.NewAuction(_, _) => auctionHouse.get forward trackMsg
-    case trackMsg @ Auction.NewBid(_, _, _) => auctionHouse.get forward trackMsg
+    case trackMsg @ AuctionActor.NewBid(_, _, _) => auctionHouse.get forward trackMsg
     case trackMsg @ AuctionHouse.GetAuctionHistory(_) => auctionHouse.get forward trackMsg
   }
 
