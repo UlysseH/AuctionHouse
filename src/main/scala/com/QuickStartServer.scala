@@ -30,7 +30,7 @@ object QuickStartServer extends App with AuctionRoutes {
   //#http-server
   Http().bindAndHandle(routes, "localhost", 5000)
 
-  println(s"Server online at http://localhost:8080/")
+  println(s"Server online at http://localhost:5000/")
 
   Await.result(system.whenTerminated, Duration.Inf)
   //#http-server

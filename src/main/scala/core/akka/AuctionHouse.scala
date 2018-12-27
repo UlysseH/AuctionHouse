@@ -4,7 +4,7 @@ import akka.actor.{Actor, ActorLogging, ActorRef, Props}
 import java.sql.Timestamp
 import java.util.Date
 
-import core.akka.AuctionActor.{BidSuccessful, NewBid, NewParams}
+import core.akka.AuctionActor.{BidSuccessful, NewBid, SetValues}
 
 import scala.Tuple3
 //utiliser collection.parallel ?
@@ -36,7 +36,6 @@ object AuctionHouse {
   final case class ActionPerformed(description: String)
 
   case object AuctioneerRegistered
-  case object AuctionRegistered
 
   final case class Bid(bidderId: String, price: Double, timestamp: Long)
 
@@ -65,17 +64,6 @@ class AuctionHouse extends Actor with ActorLogging {
   override def postStop(): Unit = log.info("Auction House stopped")
 
   override def receive: Receive = {
-    case trackMsg @ RequestAuctioneer(auctioneerId) =>
-      auctioneerIdToActor.get(auctioneerId) match {
-        case Some(ref) =>
-          ref forward trackMsg
-        case None =>
-          log.info("Creating new auctioneer actor for {}", auctioneerId)
-          val auctioneerActor = context.actorOf(Auctioneer.props(auctioneerId), "auctioneer-" + auctioneerId)
-          auctioneerIdToActor += auctioneerId -> auctioneerActor
-          actorToAuctioneerId += auctioneerActor -> auctioneerId
-      }
-
     //case NewParams
 
     case GetAuctions =>
@@ -83,44 +71,46 @@ class AuctionHouse extends Actor with ActorLogging {
 
     case CreateAuction(auction) =>
       val auctionId = auction.itemId
-      auctionIdToActor.get(auctionId) match {
-          //TODO: assess wether it's too late or not to change params !!
-        case Some(ref) =>
-          ref ! RequestAuction(auctionId, AuctionParams(
-            auction.floorPrice,
-            auction.incrementPolicy,
-            auction.startDate,
-            auction.endDate
-          ))
-        //ref ! NewParams(auctionParams)
-        case None =>
-          auctions += auction
-          log.info("Creating new auction actor for item {}", auctionId)
-          val auctioneerActor = context.actorOf(AuctionActor.props(auctionId), "auction-" + auctionId)
-          auctionIdToActor += auctionId -> auctioneerActor
-          actorToAuction += auctioneerActor -> auctionId
-          auctioneerActor ! RequestAuction(auctionId, AuctionParams(
-            auction.floorPrice,
-            auction.incrementPolicy,
-            auction.startDate,
-            auction.endDate
-          ))
-          sender() ! ActionPerformed(s"User ${auction.itemId} created.")
-      }
-
-
-      //TODO: remove this function
-    case NewAuction(auctionId, auctionParams) =>
+      val now = new Timestamp(new Date().getTime)
       auctionIdToActor.get(auctionId) match {
         case Some(ref) =>
-          ref ! RequestAuction(auctionId, auctionParams)
-          //ref ! NewParams(auctionParams)
-        case None =>
-          log.info("Creating new auction actor for item {}", auctionId)
-          val auctioneerActor = context.actorOf(AuctionActor.props(auctionId), "auction-" + auctionId)
-          auctionIdToActor += auctionId -> auctioneerActor
-          actorToAuction += auctioneerActor -> auctionId
-          auctioneerActor ! RequestAuction(auctionId, auctionParams)
+          auctions
+            .map(a => a.itemId -> a.startDate)
+            .toMap.get(auctionId)
+          match {
+            case None => log.warning("Critical issue with auction[{}]", auctionId)
+            case Some(timestamp) =>
+              if (now.before(timestamp)) {
+                // Replacing former auction with the updated version
+                auctions -= auctions.filter(a => a.itemId == auctionId).head
+                auctions += auction
+                ref ! SetValues(
+                  auction.floorPrice,
+                  auction.incrementPolicy,
+                  auction.startDate,
+                  auction.endDate
+                )
+                sender() ! ActionPerformed(s"Auction $auctionId updated.")
+              }
+              else {
+                sender() ! ActionPerformed("Auction already started. Too late to change parameters !")
+                log.warning("Auction already started. Too late to change parameters !")
+              }
+          }
+
+          case None =>
+            log.info("Creating new auction actor for item {}", auctionId)
+            val auctionActor = context.actorOf(AuctionActor.props(auctionId), "auction-" + auctionId)
+            auctions += auction
+            auctionIdToActor += auctionId -> auctionActor
+            actorToAuction += auctionActor -> auctionId
+            auctionActor ! SetValues(
+              auction.floorPrice,
+              auction.incrementPolicy,
+              auction.startDate,
+              auction.endDate
+            )
+            sender() ! ActionPerformed(s"Auction $auctionId created.")
       }
 
     case GetAuctionHistory(auctionId) => {

@@ -5,7 +5,7 @@ import java.util.Date
 
 import scala.concurrent.duration._
 import akka.actor.{Actor, ActorLogging, Props, Timers}
-import core.akka.AuctionHouse.{CreateAuction, NewAuction, RequestAuction}
+import core.akka.AuctionHouse.{ActionPerformed, CreateAuction, NewAuction, RequestAuction}
 //import core.akka.AuctionHouse.{AuctionHistory, UpdatedAuctionHistory}
 
 import scala.collection.mutable.ListBuffer
@@ -26,11 +26,12 @@ object AuctionActor {
 
   //received messages
   final case class NewBid(auctionId: String, bidderId: String, price: Float)
-  final case class NewParams(auctionParams: AuctionParams)
+  final case class SetValues(floorPrice: Double, incrementPolicy: Float, startDate: Timestamp, endDate: Timestamp)
 
   //sent messages
   final case class BidFailed(auctionId: String, bidderId: String)
   final case class BidSuccessful(auctionId: String, bidderId: String, price: Float, time: Long)
+
 
   //states
   sealed trait State
@@ -40,10 +41,13 @@ object AuctionActor {
   case object Closed extends State
 
   var state: State = Planned
-  var params: Option[AuctionParams] = None
-
-  //var paramsTimestamp:
-  var currentPrice: Float = 0
+  var currentPrice: Float = -1
+  
+  var floorPrice: Double = -1
+  var incrementPolicy: Float = -1
+  var startDate: Timestamp = new Timestamp(0)
+  var endDate: Timestamp = new Timestamp(0)
+  
   var auctionHistory = new ListBuffer[(String, Float, Long)]()
 }
 
@@ -56,40 +60,46 @@ class AuctionActor(auctionId: String) extends Actor with ActorLogging with Timer
   override def postStop(): Unit = log.info("Auction stopped")
 
   override def receive: Receive = {
-    case RequestAuction(`auctionId`, auctionParams) =>
-      params = Some(auctionParams)
-      context.parent ! AuctionHouse.AuctionRegistered
+    case SetValues(price: Double, increment: Float, start: Timestamp, end: Timestamp) =>
+      floorPrice = price
+      incrementPolicy = increment
+      startDate = start
+      endDate = end
+    
+    //case RequestAuction(`auctionId`, auctionParams) =>
+    //  println(sender())
+    //  params match {
+    //    case None => log.info("Auction for {} initialized.", auctionId)
+    //    case _ => log.info("Auction for {} updated.", auctionId)
+    //  }
+    //  params = Some(auctionParams)
 
     //case AuctionHouse.RequestAuction(`auctionId`) =>
     //  context.parent ! AuctionHouse.AuctioneerRegistered
 
-    // TODO: clarify itemId <--> auctionId
-    case RequestAuction(auctionId, _) =>
-      log.warning(
-        "Ignoring Auction request for {}. This actor is responsible for {}",
-        auctionId, this.auctionId
-      )
+    //case RequestAuction(auctionId, _) =>
+    //  log.warning(
+    //    "Ignoring Auction request for {}. This actor is responsible for {}",
+    //    auctionId, this.auctionId
+    //  )
 
-    //TODO : handle NewParams
-    case NewParams(auctionParams) =>
-      params = Some(auctionParams)
 
     case NewBid(`auctionId`, bidderId, price) =>
       val now = new Timestamp(new Date().getTime)
       state match {
       case Planned =>
-        if (now.before(params.get.startDate)) {
-          log.info("Too early to bid ! Auction starting at {}", params.get.startDate)
+        if (now.before(startDate)) {
+          log.info("Too early to bid ! Auction starting at {}", startDate)
           context.parent ! BidFailed(auctionId, bidderId)
         }
 
-        else if (now.after(params.get.endDate)) {
+        else if (now.after(endDate)) {
           log.info("Too late to bid ! Closing {}", auctionId)
           state = Closed
           context.parent ! BidFailed(auctionId, bidderId)
         }
 
-        else if (price >= params.get.floorPrice) {
+        else if (price >= floorPrice) {
           state = Open
           currentPrice = price
           auctionHistory += Tuple3(bidderId, price, System.currentTimeMillis())
@@ -102,12 +112,12 @@ class AuctionActor(auctionId: String) extends Actor with ActorLogging with Timer
           context.parent ! BidSuccessful(auctionId, bidderId, price, System.currentTimeMillis())
         }
 
-        else if (price < params.get.floorPrice) {
+        else if (price < floorPrice) {
           log.info(
             "Insufficient price for auction-{} by bidder-{}. Minimum is {}",
             auctionId,
             bidderId,
-            params.get.floorPrice
+            floorPrice
           )
         }
 
@@ -115,14 +125,14 @@ class AuctionActor(auctionId: String) extends Actor with ActorLogging with Timer
 
 
       case Open =>
-        if (now.after(params.get.endDate)) {
+        if (now.after(endDate)) {
           log.info("Too late to bid ! Closing {}", auctionId)
           state = Closed
           context.parent ! BidFailed(auctionId, bidderId)
         }
 
         //TODO: factoriser ?
-        else if (price >= currentPrice + params.get.incrementPolicy) {
+        else if (price >= currentPrice + incrementPolicy) {
           currentPrice = price
           auctionHistory += Tuple3(bidderId, price, System.currentTimeMillis())
           log.info(
@@ -134,12 +144,12 @@ class AuctionActor(auctionId: String) extends Actor with ActorLogging with Timer
           context.parent ! BidSuccessful(auctionId, bidderId, price, System.currentTimeMillis())
         }
 
-        else if (price < currentPrice + params.get.incrementPolicy) {
+        else if (price < currentPrice + incrementPolicy) {
           log.info(
             "Insufficient price for auction-{} by bidder-{}. Minimum is {}",
             auctionId,
             bidderId,
-            currentPrice + params.get.incrementPolicy
+            currentPrice + incrementPolicy
           )
         }
         else log.warning("Unpredicted behaviour for {}", auctionId)
