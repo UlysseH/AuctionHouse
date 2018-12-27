@@ -5,15 +5,15 @@ import akka.actor.{ActorLogging, Actor, Props}
 //itemId -> Item case class ?
 //case class Bid(bidderId: String, itemId: String, value: Double, bidId: String)
 
-object Bidder {
-  def props(bidderId: String): Props = Props(new Bidder(bidderId))
+object BidderActor {
+  def props(bidderId: String): Props = Props(new BidderActor(bidderId))
 
   final case class getActionHouseState(requestId: String)
   final case class joinAuction(requestId: String)
   //final case class placeBid(requestId: String, bid: Bid)
 }
 
-class Bidder(bidderId: String) extends Actor with ActorLogging {
+class BidderActor(bidderId: String) extends Actor with ActorLogging {
   import Bidder._
 
   override def preStart(): Unit = log.info("Bidder started")

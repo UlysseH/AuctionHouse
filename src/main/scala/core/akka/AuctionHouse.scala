@@ -18,6 +18,7 @@ final case class Auction(
                           startDate: Timestamp,
                           endDate: Timestamp,
                         )
+
 final case class Auctions(auctions: Seq[Auction])
 
 object AuctionHouse {
@@ -26,16 +27,11 @@ object AuctionHouse {
   //TODO: Caution not to create two or more Auction for the same item -> auctionId === itemId
   final case class GetAuctionHistory(auctionId: String)
 
-  final case class RequestAuctioneer(auctioneerId: String)
   final case class RequestAuction(auctionId: String, auctionParams: AuctionParams)
-
-  final case class NewAuction(auctionId: String, auctionParams: AuctionParams)
 
   final case class CreateAuction(auction: Auction)
 
   final case class ActionPerformed(description: String)
-
-  case object AuctioneerRegistered
 
   final case class Bid(bidderId: String, price: Double, timestamp: Long)
 

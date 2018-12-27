@@ -1,6 +1,6 @@
 package com
 
-import core.akka.{Auction, Auctions}
+import core.akka.{Auction, Auctions, Bidder, Bidders}
 import core.akka.AuctionSystemSupervisor._
 import spray.json.{DeserializationException, JsNumber, JsString, JsValue, JsonFormat}
 import java.sql.Timestamp
@@ -30,6 +30,10 @@ trait JsonSupport extends SprayJsonSupport {
 
   implicit val auctionJsonFormat = jsonFormat5(Auction)
   implicit val auctionsJsonFormat = jsonFormat1(Auctions)
+
+  implicit val bidderJsonFormat = jsonFormat1(Bidder)
+  implicit val biddersJsonFormat = jsonFormat1(Bidders)
+
   implicit val actionPerformedJsonFormat = jsonFormat1(ActionPerformed)
 
 

@@ -5,13 +5,18 @@ import scala.concurrent.Await
 import scala.concurrent.duration.Duration
 import akka.actor.{ActorRef, ActorSystem}
 import akka.http.scaladsl.Http
-import akka.http.scaladsl.server.Route
 import akka.stream.ActorMaterializer
 import com.routes.AuctionRoutes
-import core.akka.AuctionHouse
+import com.routes.BidderRoutes
+import akka.http.scaladsl.server.Route
+
+import akka.http.scaladsl.server.Directives._
+
+
+import core.akka.{AuctionHouse, BidderManager}
 
 //#main-class
-object QuickStartServer extends App with AuctionRoutes {
+object QuickStartServer extends App with AuctionRoutes with BidderRoutes {
 
   // set up ActorSystem and other dependencies here
   //#main-class
@@ -21,10 +26,11 @@ object QuickStartServer extends App with AuctionRoutes {
   //#server-bootstrapping
 
   val auctionHouseActor: ActorRef = system.actorOf(AuctionHouse.props, "auctionHouse")
+  val bidderManagerActor: ActorRef = system.actorOf(BidderManager.props, "bidderManager")
 
   //#main-class
   // from the UserRoutes trait
-  lazy val routes: Route = auctionRoutes
+  lazy val routes: Route = concat(auctionRoutes, bidderRoutes)
   //#main-class
 
   //#http-server

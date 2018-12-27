@@ -4,7 +4,7 @@ import java.util.Date
 import akka.actor._
 import core.akka.AuctionActor.NewBid
 import core.akka.{AuctionParams, AuctionSystemSupervisor}
-import core.akka.AuctionHouse.{GetAuctionHistory, NewAuction, RequestAuctioneer}
+import core.akka.AuctionHouse.{GetAuctionHistory}
 import core.akka.BidderManager.RequestBidder
 
 import scala.io.StdIn
@@ -26,8 +26,8 @@ object sandbox {
       val now = new Timestamp(new Date().getTime)
       println(now)
       //TODO: add auctioneer to NewAuction
-      supervisor ! NewAuction("1", AuctionParams(100, 1, now, new Timestamp(now.getTime + 60000)))
-      supervisor ! NewAuction("2", AuctionParams(100, 1, now, new Timestamp(now.getTime + 60000)))
+      //supervisor ! NewAuction("1", AuctionParams(100, 1, now, new Timestamp(now.getTime + 60000)))
+      //supervisor ! NewAuction("2", AuctionParams(100, 1, now, new Timestamp(now.getTime + 60000)))
 
       supervisor ! NewBid("1", "1", 90)
       supervisor ! NewBid("1", "2", 100)
