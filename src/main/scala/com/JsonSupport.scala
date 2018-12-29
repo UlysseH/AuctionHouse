@@ -1,11 +1,13 @@
 package com
 
-import core.akka.{Auction, Auctions, Bidder, Bidders}
+import core.akka._
 import core.akka.AuctionSystemSupervisor._
 import spray.json.{DeserializationException, JsNumber, JsString, JsValue, JsonFormat}
 import java.sql.Timestamp
 
-import core.akka.AuctionHouse.ActionPerformed
+import core.akka.AuctionActor.AuctionHistory
+import core.akka.AuctionHouse.{ActionPerformed, Bid, SuccessfulBid}
+import core.akka.BidderManager.{BidderAuctionHistory, BidderAuctionHouseHistory, BidderRelatedAuctionStatus}
 
 //#json-support
 import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport
@@ -28,13 +30,21 @@ trait JsonSupport extends SprayJsonSupport {
     }
   }
 
+  implicit val auctionIdJsonFormat = jsonFormat1(AuctionId)
   implicit val auctionJsonFormat = jsonFormat5(Auction)
   implicit val auctionsJsonFormat = jsonFormat1(Auctions)
+
+  implicit val successfulBidJsonFormat = jsonFormat3(SuccessfulBid)
+  implicit val auctionHistoryJsonFormat = jsonFormat1(AuctionHistory)
+
+  implicit val bidderRelatedAuctionStatusJsonFormat = jsonFormat1(BidderRelatedAuctionStatus)
+  implicit val bidderRelatedAuctionHistoryJsonFormat = jsonFormat3(BidderAuctionHistory)
+  implicit val bidderRelatedAuctionHouseHistoryJsonFormat = jsonFormat1(BidderAuctionHouseHistory)
 
   implicit val bidderJsonFormat = jsonFormat1(Bidder)
   implicit val biddersJsonFormat = jsonFormat1(Bidders)
 
+  implicit val bidJsonFormat = jsonFormat2(Bid)
+
   implicit val actionPerformedJsonFormat = jsonFormat1(ActionPerformed)
-
-
 }

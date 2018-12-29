@@ -7,7 +7,7 @@
 		revision="0.1"
 		conf="test"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, pom, scala-tool"
-		date="20181226002632"/>
+		date="20181227124640"/>
 	<dependencies>
 		<module organisation="org.scala-lang" name="scala-reflect">
 			<revision name="2.12.6" status="release" pubdate="20180427103633" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" extra-info.apiURL="http://www.scala-lang.org/api/2.12.6/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="21">
@@ -39,7 +39,7 @@
 				<metadata-artifact status="no" details="" size="3489" time="0" location="/Users/ulysse/.ivy2/cache/com.typesafe.akka/akka-stream-testkit_2.12/ivy-2.5.18.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-stream-testkit_2.12/2.5.18/akka-stream-testkit_2.12-2.5.18.pom"/>
 				<caller organisation="default" name="auctionhouse$sources" conf="test, compile, runtime" rev="2.5.18" rev-constraint-default="2.5.18" rev-constraint-dynamic="2.5.18" callerrev="0.1" extra-info.apiURL="http://doc.akka.io/api/akka/2.5.18"/>
 				<artifacts>
-					<artifact name="akka-stream-testkit_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="11297" time="308" location="/Users/ulysse/.ivy2/cache/com.typesafe.akka/akka-stream-testkit_2.12/srcs/akka-stream-testkit_2.12-2.5.18-sources.jar">
+					<artifact name="akka-stream-testkit_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="11297" time="0" location="/Users/ulysse/.ivy2/cache/com.typesafe.akka/akka-stream-testkit_2.12/srcs/akka-stream-testkit_2.12-2.5.18-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-stream-testkit_2.12/2.5.18/akka-stream-testkit_2.12-2.5.18-sources.jar"/>
 					</artifact>
 				</artifacts>
