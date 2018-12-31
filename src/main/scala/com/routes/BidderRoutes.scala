@@ -1,11 +1,9 @@
 package com.routes
 
-import akka.actor.Status.Success
 import akka.actor.{ActorRef, ActorSystem}
 import akka.event.Logging
 import akka.http.scaladsl.model.StatusCodes
 import akka.http.scaladsl.server.Route
-import akka.http.scaladsl.server.directives.MethodDirectives.delete
 import akka.http.scaladsl.server.directives.MethodDirectives.{get, post}
 import akka.http.scaladsl.server.directives.RouteDirectives.complete
 import akka.http.scaladsl.server.Directives._
@@ -13,12 +11,9 @@ import akka.http.scaladsl.server.directives.PathDirectives.{path, pathPrefix}
 import com.JsonSupport
 import akka.util.Timeout
 import akka.pattern.ask
-import core.akka.AuctionActor.NewBid
-import core.akka.AuctionHouse.{ActionPerformed, Bid, GetAuction}
-import core.akka.BidderManager.{BidderAuctionHistory, BidderAuctionHouseHistory, CreateBidder, GetAuctionHouseHistory, GetBidder, GetBidders, JoinAuction}
 import core.akka._
 
-import scala.concurrent.{Await, Future, Promise}
+import scala.concurrent.{Await, Future}
 import scala.concurrent.duration._
 
 // Get the implicit ExecutionContext from this import
@@ -58,7 +53,7 @@ trait BidderRoutes extends JsonSupport {
             }
           )
         },
-        path(Segments(2)) { s => s match {
+        path(Segments(2)) { _ match {
           case bidderId::"join_auction"::_ => post { entity(as[AuctionId]) {
             auction =>
               val auctionId = auction.auctionId
@@ -96,26 +91,20 @@ trait BidderRoutes extends JsonSupport {
           }
           }
           case bidderId::"auction_house_history"::_ => get {
-
-
-
-            val tmp = //: Future[Promise[BidderAuctionHouseHistory]] =
-              (bidderManagerActor ? GetAuctionHouseHistory(bidderId)).mapTo[Seq[Future[BidderAuctionHistory]]]
-
-            val tttmp = Await.result(tmp, 5.seconds)
-
-
-            val maybeBidderAuctionHistory = Future
-              .sequence(tttmp)
+           val maybeBidderAuctionHistory = Future
+              .sequence(
+                Await.result(
+                  (bidderManagerActor ? GetAuctionHouseHistory(bidderId)).mapTo[Seq[Future[BidderAuctionHistory]]],
+                  5.seconds
+                )
+              )
               .flatMap(o => Future(BidderAuctionHouseHistory(o)))
-
 
             rejectEmptyResponse {
               complete(maybeBidderAuctionHistory)
             }
           }
         }
-
         }
       )
     }

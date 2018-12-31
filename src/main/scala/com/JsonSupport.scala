@@ -1,13 +1,8 @@
 package com
 
 import core.akka._
-import core.akka.AuctionSystemSupervisor._
-import spray.json.{DeserializationException, JsNumber, JsString, JsValue, JsonFormat}
+import spray.json.{DeserializationException, JsBoolean, JsNumber, JsString, JsValue, JsonFormat}
 import java.sql.Timestamp
-
-import core.akka.AuctionActor.AuctionHistory
-import core.akka.AuctionHouse.{ActionPerformed, Bid, SuccessfulBid}
-import core.akka.BidderManager.{BidderAuctionHistory, BidderAuctionHouseHistory, BidderRelatedAuctionStatus}
 
 //#json-support
 import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport
@@ -18,8 +13,17 @@ import spray.json.DefaultJsonProtocol
 trait JsonSupport extends SprayJsonSupport {
   import DefaultJsonProtocol._
 
+  //implicit object BooleanFormat extends JsonFormat[Boolean] {
+  //  def write(value: Boolean): JsBoolean = JsBoolean(value)
+
+  //  def read(json: JsValue) = json match {
+  //      case JsBoolean(true) => true
+  //      case JsBoolean(false) => false
+  //      case _ => throw new DeserializationException("Not a boolean")
+  //    }
+  //}
+
   implicit object TimestampFormat extends JsonFormat[Timestamp] {
-    //TODO: revoir avec la norme ISO 8601
     val format = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
 
     def write(obj: Timestamp) = JsString(format.format(obj.getTime))
@@ -46,5 +50,5 @@ trait JsonSupport extends SprayJsonSupport {
 
   implicit val bidJsonFormat = jsonFormat2(Bid)
 
-  implicit val actionPerformedJsonFormat = jsonFormat1(ActionPerformed)
+  implicit val actionPerformedJsonFormat = jsonFormat2(ActionPerformed)
 }

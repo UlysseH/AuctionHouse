@@ -4,17 +4,15 @@ import akka.actor.{ActorRef, ActorSystem}
 import akka.event.Logging
 import akka.http.scaladsl.model.StatusCodes
 import akka.http.scaladsl.server.Route
-import akka.http.scaladsl.server.directives.MethodDirectives.delete
 import akka.http.scaladsl.server.directives.MethodDirectives.{get, post}
 import akka.http.scaladsl.server.directives.RouteDirectives.complete
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.directives.PathDirectives.{path, pathPrefix}
 import com.JsonSupport
-import core.akka.AuctionHouse.{ActionPerformed, CreateAuction, GetAuctionHistory, GetAuctions, SuccessfulBid}
 import core.akka.{Auction, Auctions}
 import akka.util.Timeout
 import akka.pattern.ask
-import core.akka.AuctionActor.{AuctionHistory, BidSuccessful}
+import core.akka._
 
 import scala.concurrent.Future
 import scala.concurrent.duration._
@@ -45,12 +43,27 @@ trait AuctionRoutes extends JsonSupport {
                   (auctionHouseActor ? CreateAuction(auction)).mapTo[ActionPerformed]
 
                 onSuccess(auctionCreated) { performed =>
-                  log.info("Created auction [{}]: {}", auction.itemId, performed.description)
-                  complete((StatusCodes.Created, performed))
+                  if (performed.success) {
+                    log.info("Created auction [{}]: {}.", auction.itemId, performed.description)
+                    complete((StatusCodes.Created, performed))
+                  }
+                  else {
+                    log.info("Couldn't create auction [{}]: {}.", auction.itemId, performed.description)
+                    complete((StatusCodes.BadRequest, performed))
+                  }
                 }
               }
             }
           )
+        },
+        path(Segment) { id =>
+          get {
+            val maybeAuction: Future[Option[Auction]] =
+              (auctionHouseActor ? GetAuction(id)).mapTo[Option[Auction]]
+            rejectEmptyResponse {
+              complete(maybeAuction)
+            }
+          }
         },
         path(Segments(2)) { s => s match {
           case auctionId::"auction_history"::_ => get {
