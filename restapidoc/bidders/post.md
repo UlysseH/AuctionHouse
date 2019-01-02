@@ -1,100 +1,62 @@
-# Update Current User
+# Create/Modify Auction
 
-Allow the Authenticated User to update their details.
+If the id of the item does not already exist, creates the Auction. If it already exist, update the other fields.
 
-**URL** : `/api/user/`
+**URL** : `/auctions/`
 
-**Method** : `PUT`
+**Method** : `POST`
 
-**Auth required** : YES
+**Auth required** : NO
 
 **Permissions required** : None
 
-**Data constraints**
+**Data example** 
 
 ```json
 {
-    "first_name": "[1 to 30 chars]",
-    "last_name": "[1 to 30 chars]"
+	"bidderId": "2"
 }
 ```
 
-Note that `id` and `email` are currently read only fields.
+## Success Response
 
-**Header constraints**
+**Condition** : If there is no Bidder in the system for this bidderId.
 
-The application used to update the User's information can be sent in the
-header. Values passed in the `UAPP` header only pass basic checks for validity:
+**Code** : `201 CREATED`
 
-- If 0 characters, or not provided, ignore.
-- If 1 to 8 characters, save.
-- If longer than 8 characters, ignore.
-
-```
-UAPP: [1 to 8 chars]
-```
-
-**Data examples**
-
-Partial data is allowed.
+**Content example**
 
 ```json
 {
-    "first_name": "John"
+    "description": "Bidder 2 created.",
+    "success": true
 }
 ```
 
-Empty data can be PUT to erase the name, in this case from the iOS application
-version 1.2:
+## Error Responses
 
-```
-UAPP: ios1_2
-```
-
-```json
-{
-    "last_name": ""
-}
-```
-
-## Success Responses
-
-**Condition** : Data provided is valid and User is Authenticated.
-
-**Code** : `200 OK`
-
-**Content example** : Response will reflect back the updated information. A
-User with `id` of '1234' sets their name, passing `UAPP` header of 'ios1_2':
-
-```json
-{
-    "id": 1234,
-    "first_name": "Joe",
-    "last_name": "Bloggs",
-    "email": "joe25@example.com",
-    "uapp": "ios1_2"
-}
-```
-
-## Error Response
-
-**Condition** : If provided data is invalid, e.g. a name field is too long.
+**Condition** : If the field is missing or of incorrect type.
 
 **Code** : `400 BAD REQUEST`
 
-**Content example** :
+**Content example**
+
+```
+The request content was malformed:
+Expected String as JsString, but got 12
+```
+
+### Or
+
+**Condition** : If there is already a Bidder in the system for this bidderId.
+
+**Code** : `409 Conflict`
+
+**Content example**
 
 ```json
 {
-    "first_name": [
-        "Please provide maximum 30 character or empty string",
-    ]
+    "description": "Bidder already exists !",
+    "success": false
 }
 ```
-
-## Notes
-
-* Endpoint will ignore irrelevant and read-only data such as parameters that
-  don't exist, or fields that are not editable like `id` or `email`.
-* Similar to the `GET` endpoint for the User, if the User does not have a
-  UserInfo instance, then one will be created for them.

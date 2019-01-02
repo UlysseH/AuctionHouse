@@ -49,10 +49,7 @@ class BidderManager extends Actor with ActorLogging {
       sender() ! Bidders(bidders.toSeq)
 
     case GetBidder(bidderId) =>
-      bidderIdToActor.get(bidderId) match {
-        case Some(ref) => sender() ! ref
-        case None => log.warning(s"Bidder {} does not exists", bidderId)
-      }
+      sender() ! bidderIdToActor.get(bidderId)
 
     case msg @ JoinAuction(bidderId, _, _) =>
       bidderIdToActor.get(bidderId) match {
@@ -72,7 +69,9 @@ class BidderManager extends Actor with ActorLogging {
       bidderIdToActor.get(bidderId) match {
         case Some(ref) =>
           (ref ? msg) pipeTo sender()
-        case None => log.warning("No action performed. Bidder {} does not exists.", bidderId)
+        case None =>
+          sender() ! ActionPerformed(s"No action performed. Bidder $bidderId does not exists.", false)
+          log.warning("No action performed. Bidder {} does not exists.", bidderId)
       }
   }
 }

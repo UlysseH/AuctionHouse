@@ -13,6 +13,7 @@ final case class Bid(auctionId: String, price: Float) extends Message
 final case class SuccessfulBid(bidderId: String, price: Float, time: Timestamp) extends Message
 final case object GetAuctions extends Message
 final case class GetAuction(auctionId: String) extends Message
+final case class GetAuctionActor(auctionId: String) extends Message
 final case class CreateBidder(bidder: Bidder) extends Message
 final case object GetBidders extends Message
 final case class GetBidder(bidderId: String) extends Message

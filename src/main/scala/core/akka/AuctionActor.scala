@@ -35,12 +35,18 @@ class AuctionActor(auction: Auction) extends Actor with ActorLogging with Timers
 
   override def receive: Receive = {
     case UpdateAuction(a) =>
+      val now = new Timestamp(new Date().getTime)
       val id = a.itemId
-      floorPrice = a.floorPrice
-      incrementPolicy = a.incrementPolicy
-      startDate = a.startDate
-      endDate = a.endDate
-      sender() ! ActionPerformed(s"Updated auction $id.", true)
+      if (now.before(startDate)) {
+        floorPrice = a.floorPrice
+        incrementPolicy = a.incrementPolicy
+        startDate = a.startDate
+        endDate = a.endDate
+        sender() ! ActionPerformed(s"Updated auction $id.", true)
+      }
+      else {
+        sender() ! ActionPerformed(s"Cannot update auction $id since it has already started.", false)
+      }
 
     case GetAuctionHouseHistory(bidderId) =>
       val now = new Timestamp(new Date().getTime)

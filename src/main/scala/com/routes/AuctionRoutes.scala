@@ -81,15 +81,15 @@ trait AuctionRoutes extends JsonSupport {
           }
         },
         path(Segments(2)) { s => s match {
-          case auctionId::"auction_history"::_ => get {
-            val maybeAuctionHistory: Future[Option[AuctionHistory]] =
-              (auctionHouseActor ? GetAuctionHistory(auctionId)).mapTo[Option[AuctionHistory]]
-            rejectEmptyResponse {
-              complete(maybeAuctionHistory)
+          case auctionId::"auction_history"::_ =>
+            get {
+              val maybeAuctionHistory: Future[Option[AuctionHistory]] =
+                (auctionHouseActor ? GetAuctionHistory(auctionId)).mapTo[Option[AuctionHistory]]
+              rejectEmptyResponse {
+                complete(maybeAuctionHistory)
             }
           }
         }
-
         }
       )
     }

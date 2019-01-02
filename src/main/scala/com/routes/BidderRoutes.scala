@@ -46,8 +46,18 @@ trait BidderRoutes extends JsonSupport {
                   (bidderManagerActor ? CreateBidder(bidder)).mapTo[ActionPerformed]
 
                 onSuccess(bidderCreated) { performed =>
-                  log.info("Created bidder [{}]: {}", bidder.bidderId, performed.description)
-                  complete((StatusCodes.Created, performed))
+                  if (performed.success) {
+                      log.info("Created bidder [{}]: {}.", bidder.bidderId, performed.description)
+                      complete((StatusCodes.Created, performed))
+                    }
+                  else {
+                    log.info(
+                      "Couldn't create or update auction [{}]: {}.",
+                      bidder.bidderId,
+                      performed.description
+                    )
+                    complete((StatusCodes.Conflict, performed))
+                  }
                 }
               }
             }
@@ -55,22 +65,33 @@ trait BidderRoutes extends JsonSupport {
         },
         path(Segments(2)) { _ match {
           case bidderId::"join_auction"::_ => post { entity(as[AuctionId]) {
-            auction =>
-              val auctionId = auction.auctionId
-              val auctionActor: ActorRef = Await.result(
-                (auctionHouseActor ? GetAuction(auctionId)).mapTo[ActorRef],
+            auctionId =>
+              val id = auctionId.auctionId
+              val maybeAuctionActor: Option[ActorRef] = Await.result(
+                (auctionHouseActor ? GetAuctionActor(id)).mapTo[Option[ActorRef]],
                 5.seconds
               )
-
-              val auctionJoined: Future[ActionPerformed] =
-                (bidderManagerActor ? JoinAuction(bidderId, auctionId, auctionActor)).mapTo[ActionPerformed]
-
-
-              onSuccess(auctionJoined) { performed =>
-                log.info("Bidder {} joined auction {}: {}", bidderId, auctionId, performed.description)
-                complete((StatusCodes.OK, performed))
+              maybeAuctionActor match {
+                case None =>
+                  log.info("Auction {} does not exist", id)
+                  complete(
+                    StatusCodes.BadRequest,
+                    ActionPerformed(s"Auction $id does not exist", false)
+                  )
+                case Some(ref) =>
+                  val auctionJoined: Future[ActionPerformed] =
+                    (bidderManagerActor ? JoinAuction(bidderId, id, ref)).mapTo[ActionPerformed]
+                  onSuccess(auctionJoined) { performed =>
+                    if (performed.success) {
+                      log.info("Bidder {} joined auction {}: {}", bidderId, id, performed.description)
+                      complete((StatusCodes.OK, performed))
+                    }
+                    else {
+                      log.info("Bidder {} does not exist", bidderId)
+                      complete((StatusCodes.BadRequest, performed))
+                    }
+                  }
               }
-
           }
 
         }
@@ -85,12 +106,17 @@ trait BidderRoutes extends JsonSupport {
 
               onSuccess(bidOutcome) { performed =>
                 log.info(performed.description)
-                complete((StatusCodes.OK, performed))
+                if (performed.success) {
+                  complete(StatusCodes.OK, performed)
+                }
+                else {
+                  complete(StatusCodes.BadRequest, performed)
+                }
               }
-
           }
           }
           case bidderId::"auction_house_history"::_ => get {
+
            val maybeBidderAuctionHistory = Future
               .sequence(
                 Await.result(
@@ -99,6 +125,8 @@ trait BidderRoutes extends JsonSupport {
                 )
               )
               .flatMap(o => Future(BidderAuctionHouseHistory(o)))
+
+            println(maybeBidderAuctionHistory)
 
             rejectEmptyResponse {
               complete(maybeBidderAuctionHistory)

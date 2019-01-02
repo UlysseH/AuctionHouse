@@ -44,6 +44,9 @@ class AuctionHouse extends Actor with ActorLogging {
     case GetAuction(auctionId) =>
       sender() ! auctions.find(_.itemId == auctionId)
 
+    case GetAuctionActor(auctionId) =>
+      sender() ! auctionIdToActor.get(auctionId)
+
     case GetAuctions =>
       sender() ! Auctions(auctions.toSeq)
 
@@ -53,7 +56,7 @@ class AuctionHouse extends Actor with ActorLogging {
         case Some(ref) =>
           val now = new Timestamp(new Date().getTime)
           if (auction.startDate.before(now)) {
-            sender() ! ActionPerformed("Cannot update auction : illegal start date.", false)
+            sender() ! ActionPerformed("Illegal start date : an auction must start in the future.", false)
           }
           else if (auction.startDate.after(auction.endDate)) {
             sender() ! ActionPerformed("Cannot update auction : end date is anterior to start.", false)
