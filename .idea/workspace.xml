@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6fd4e016-17cd-4ed1-90b1-90977a597c0d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/scala/com/routes/BidderRoutesSpec.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/com/routes/BidderRoutesSpec.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -67,7 +66,7 @@
         <counts>
           <entry key="class" value="1" />
           <entry key="java" value="7" />
-          <entry key="md" value="18" />
+          <entry key="md" value="19" />
           <entry key="sbt" value="4" />
           <entry key="scala" value="149" />
         </counts>
@@ -76,7 +75,7 @@
         <counts>
           <entry key="CLASS" value="1" />
           <entry key="JAVA" value="7" />
-          <entry key="Markdown" value="17" />
+          <entry key="Markdown" value="18" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Scala" value="149" />
           <entry key="sbt" value="4" />
@@ -85,14 +84,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Scala Console" value="316" />
-          <entry key="md" value="2094" />
+          <entry key="md" value="2102" />
           <entry key="sbt" value="81" />
           <entry key="scala" value="29085" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Markdown" value="1968" />
+          <entry key="Markdown" value="1976" />
           <entry key="PLAIN_TEXT" value="126" />
           <entry key="Scala" value="29401" />
           <entry key="sbt" value="81" />
@@ -114,7 +113,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/scala/com/routes/BidderRoutesSpec.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="216">
@@ -166,8 +165,20 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="330">
-                <caret line="22" column="66" lean-forward="true" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="66" />
+              <first_editor relative-caret-position="210">
+                <caret line="14" column="13" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="13" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/restapidoc/bidders/auction_house_history/get.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="10">
+                <caret line="20" column="6" lean-forward="true" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
               </first_editor>
               <second_editor />
             </state>
@@ -261,7 +272,6 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/restapidoc/bidders/bid/post.md" />
         <option value="$PROJECT_DIR$/src/main/scala/core/akka/AuctionHouse.scala" />
-        <option value="$PROJECT_DIR$/restapidoc/bidders/auction_house_history/get.md" />
         <option value="$PROJECT_DIR$/src/main/scala/core/akka/BidderManager.scala" />
         <option value="$PROJECT_DIR$/restapidoc/auctions/auction_history/get.md" />
         <option value="$PROJECT_DIR$/src/main/scala/com/routes/BidderRoutes.scala" />
@@ -271,6 +281,7 @@
         <option value="$PROJECT_DIR$/src/test/scala/com/routes/AuctionRoutesSpec.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/core/akka/AuctionActor.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/com/routes/BidderRoutesSpec.scala" />
+        <option value="$PROJECT_DIR$/restapidoc/bidders/auction_house_history/get.md" />
       </list>
     </option>
   </component>
@@ -322,6 +333,24 @@
             <path>
               <item name="AuctionHouse" type="b2602c69:ProjectViewProjectNode" />
               <item name="AuctionHouse" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AuctionHouse" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AuctionHouse" type="462c0819:PsiDirectoryNode" />
+              <item name="restapidoc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AuctionHouse" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AuctionHouse" type="462c0819:PsiDirectoryNode" />
+              <item name="restapidoc" type="462c0819:PsiDirectoryNode" />
+              <item name="bidders" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AuctionHouse" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AuctionHouse" type="462c0819:PsiDirectoryNode" />
+              <item name="restapidoc" type="462c0819:PsiDirectoryNode" />
+              <item name="bidders" type="462c0819:PsiDirectoryNode" />
+              <item name="auction_house_history" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AuctionHouse" type="b2602c69:ProjectViewProjectNode" />
@@ -394,7 +423,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546455040803" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546455178052" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -614,27 +643,26 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="774" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="Capture Tool" order="1" />
       <window_info id="UI Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" weight="0.34329563" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.17528272" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="sbt-shell-toolwindow" order="0" weight="0.32991204" />
-      <window_info anchor="bottom" id="Terminal" order="1" weight="0.33870968" />
-      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="1" sideWeight="0.49919224" visible="true" weight="0.5483871" />
+      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50080776" side_tool="true" weight="0.33870968" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32991204" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.32991204" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.3240469" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49919224" weight="0.3240469" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.3621701" />
       <window_info anchor="bottom" id="Build" order="8" weight="0.32991204" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="11" />
+      <window_info anchor="bottom" id="TODO" order="11" weight="0.32991204" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32111436" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="right" id="Theme Preview" order="1" />
@@ -1007,16 +1035,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/restapidoc/bidders/auction_house_history/get.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="1047">
-            <caret line="87" column="3" lean-forward="true" selection-start-line="87" selection-start-column="3" selection-end-line="87" selection-end-column="3" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/restapidoc/bidders/post.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
@@ -1034,16 +1052,6 @@
           <folding>
             <element signature="e#19#44#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="330">
-            <caret line="22" column="66" lean-forward="true" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="66" />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>
@@ -1149,6 +1157,26 @@
           <folding>
             <element signature="e#20#45#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="210">
+            <caret line="14" column="13" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="13" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/restapidoc/bidders/auction_house_history/get.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="10">
+            <caret line="20" column="6" lean-forward="true" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
