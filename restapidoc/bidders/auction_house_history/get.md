@@ -24,7 +24,7 @@
 
 **Code** : `200 OK`
 
-**Content** : In this example, the User can see two Auctions in that order:
+**Content example** : 
 
 ```json
 [

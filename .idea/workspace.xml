@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6fd4e016-17cd-4ed1-90b1-90977a597c0d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapidoc/bidders/join_auction/post.md" beforeDir="false" afterPath="$PROJECT_DIR$/restapidoc/bidders/join_auction/post.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/core/akka/AuctionActor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/core/akka/AuctionActor.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/scala/com/routes/AuctionRoutesSpec.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/com/routes/AuctionRoutesSpec.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/scala/com/routes/BidderRoutesSpec.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/com/routes/BidderRoutesSpec.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/test-classes/com/routes/AuctionRoutesSpec.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/test-classes/com/routes/BidderRoutesSpec.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -24,6 +19,7 @@
     <SUITE FILE_PATH="coverage/AuctionHouse$QuickStartServer.ic" NAME="QuickStartServer Coverage Results" MODIFIED="1546174343023" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/AuctionHouse$BidderRoutesSpec.ic" NAME="BidderRoutesSpec Coverage Results" MODIFIED="1546454839850" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -91,14 +87,14 @@
           <entry key="Scala Console" value="316" />
           <entry key="md" value="2094" />
           <entry key="sbt" value="81" />
-          <entry key="scala" value="29083" />
+          <entry key="scala" value="29085" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Markdown" value="1968" />
           <entry key="PLAIN_TEXT" value="126" />
-          <entry key="Scala" value="29399" />
+          <entry key="Scala" value="29401" />
           <entry key="sbt" value="81" />
         </counts>
       </usages-collector>
@@ -121,8 +117,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/scala/com/routes/BidderRoutesSpec.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="84" column="29" lean-forward="true" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
+            <state relative-caret-position="216">
+              <caret line="89" selection-start-line="89" selection-end-line="89" />
               <folding>
                 <element signature="e#20#45#0" expanded="true" />
               </folding>
@@ -330,44 +326,6 @@
             <path>
               <item name="AuctionHouse" type="b2602c69:ProjectViewProjectNode" />
               <item name="AuctionHouse" type="462c0819:PsiDirectoryNode" />
-              <item name="restapidoc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AuctionHouse" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AuctionHouse" type="462c0819:PsiDirectoryNode" />
-              <item name="restapidoc" type="462c0819:PsiDirectoryNode" />
-              <item name="auctions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AuctionHouse" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AuctionHouse" type="462c0819:PsiDirectoryNode" />
-              <item name="restapidoc" type="462c0819:PsiDirectoryNode" />
-              <item name="bidders" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AuctionHouse" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AuctionHouse" type="462c0819:PsiDirectoryNode" />
-              <item name="restapidoc" type="462c0819:PsiDirectoryNode" />
-              <item name="bidders" type="462c0819:PsiDirectoryNode" />
-              <item name="auction_house_history" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AuctionHouse" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AuctionHouse" type="462c0819:PsiDirectoryNode" />
-              <item name="restapidoc" type="462c0819:PsiDirectoryNode" />
-              <item name="bidders" type="462c0819:PsiDirectoryNode" />
-              <item name="bid" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AuctionHouse" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AuctionHouse" type="462c0819:PsiDirectoryNode" />
-              <item name="restapidoc" type="462c0819:PsiDirectoryNode" />
-              <item name="bidders" type="462c0819:PsiDirectoryNode" />
-              <item name="join_auction" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AuctionHouse" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AuctionHouse" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -436,7 +394,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546454760442" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546454948197" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -623,15 +581,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BidderRoutesSpec - 2019.01.02 at 19h 26m 24s.xml">
-      <configuration name="BidderRoutesSpec" configurationId="ScalaTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="BidderRoutesSpec - 2019.01.02 at 19h 26m 49s.xml">
-      <configuration name="BidderRoutesSpec" configurationId="ScalaTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="BidderRoutesSpec - 2019.01.02 at 19h 27m 43s.xml">
-      <configuration name="BidderRoutesSpec" configurationId="ScalaTestRunConfiguration" />
-    </history-entry>
     <history-entry file="BidderRoutesSpec - 2019.01.02 at 19h 31m 47s.xml">
       <configuration name="BidderRoutesSpec" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
@@ -653,6 +602,15 @@
     <history-entry file="BidderRoutesSpec - 2019.01.02 at 19h 45m 37s.xml">
       <configuration name="BidderRoutesSpec" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
+    <history-entry file="BidderRoutesSpec - 2019.01.02 at 19h 46m 16s.xml">
+      <configuration name="BidderRoutesSpec" configurationId="ScalaTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="BidderRoutesSpec - 2019.01.02 at 19h 47m 33s.xml">
+      <configuration name="BidderRoutesSpec" configurationId="ScalaTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="BidderRoutesSpec - 2019.01.02 at 19h 48m 25s.xml">
+      <configuration name="BidderRoutesSpec" configurationId="ScalaTestRunConfiguration" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="774" extended-state="6" />
@@ -663,7 +621,7 @@
       <window_info id="UI Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.34329563" />
+      <window_info content_ui="combo" id="Project" order="5" weight="0.34329563" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="sbt-shell-toolwindow" order="0" weight="0.32991204" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.33870968" />
@@ -687,7 +645,7 @@
       <window_info anchor="right" id="Commander" order="6" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
-      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.32960597" />
+      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.32956383" />
     </layout>
     <layout-to-restore>
       <window_info id="Designer" order="0" />
@@ -1186,8 +1144,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/com/routes/BidderRoutesSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="84" column="29" lean-forward="true" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
+        <state relative-caret-position="216">
+          <caret line="89" selection-start-line="89" selection-end-line="89" />
           <folding>
             <element signature="e#20#45#0" expanded="true" />
           </folding>

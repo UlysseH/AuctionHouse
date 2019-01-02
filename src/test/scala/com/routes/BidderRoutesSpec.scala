@@ -119,7 +119,6 @@ class BidderRoutesSpec extends WordSpec with Matchers with ScalaFutures with Sca
       }
 
       bidder2Bid2 ~> routes ~> check {
-        println(entityAs[String])
         status should ===(StatusCodes.OK)
         contentType should ===(ContentTypes.`application/json`)
       }
