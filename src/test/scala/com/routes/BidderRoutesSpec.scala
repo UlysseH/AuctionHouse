@@ -58,8 +58,8 @@ class BidderRoutesSpec extends WordSpec with Matchers with ScalaFutures with Sca
         auctionEnd
       )
 
-      val bidderBob = Bidder("Bob")
-      val bidderBobby = Bidder("Bobby")
+      val bidder1 = Bidder("bidder1")
+      val bidder2 = Bidder("bidder1")
     }
   }
 }

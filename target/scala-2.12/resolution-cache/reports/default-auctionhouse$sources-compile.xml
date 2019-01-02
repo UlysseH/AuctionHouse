@@ -7,7 +7,7 @@
 		revision="0.1"
 		conf="compile"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, pom, scala-tool"
-		date="20181230135549"/>
+		date="20181231173955"/>
 	<dependencies>
 		<module organisation="com.typesafe.akka" name="akka-http-xml_2.12">
 			<revision name="10.0.11" status="release" pubdate="20171201100502" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://akka.io" extra-info.apiURL="http://doc.akka.io/api/akka-http/10.0.11/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="17">

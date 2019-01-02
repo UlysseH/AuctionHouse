@@ -44,11 +44,26 @@ trait AuctionRoutes extends JsonSupport {
 
                 onSuccess(auctionCreated) { performed =>
                   if (performed.success) {
-                    log.info("Created auction [{}]: {}.", auction.itemId, performed.description)
-                    complete((StatusCodes.Created, performed))
+                    val id = auction.itemId
+                    if (performed.description == s"Auction $id created.") {
+                      log.info("Created auction [{}]: {}.", auction.itemId, performed.description)
+                      complete((StatusCodes.Created, performed))
+                    }
+                    if (performed.description == s"Updated auction $id.") {
+                      log.info("Updated auction [{}]: {}.", auction.itemId, performed.description)
+                      complete((StatusCodes.OK, performed))
+                    }
+                    else {
+                      log.info(s"Unexpected issue with auction $id", auction.itemId, performed.description)
+                      complete((StatusCodes.NotFound, performed))
+                    }
                   }
                   else {
-                    log.info("Couldn't create auction [{}]: {}.", auction.itemId, performed.description)
+                    log.info(
+                      "Couldn't create or update auction [{}]: {}.",
+                      auction.itemId,
+                      performed.description
+                    )
                     complete((StatusCodes.BadRequest, performed))
                   }
                 }
