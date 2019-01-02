@@ -47,8 +47,6 @@ class AuctionRoutesSpec extends WordSpec with Matchers with ScalaFutures with Sc
       val auction1Entity = Marshal(auction1).to[MessageEntity].futureValue
       val request1 = Post("/auctions").withEntity(auction1Entity)
 
-      println(request1)
-
       val auction2 = Auction(
         "2",
         100,

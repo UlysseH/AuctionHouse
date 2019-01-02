@@ -141,7 +141,7 @@ class AuctionActor(auction: Auction) extends Actor with ActorLogging with Timers
           )
           sender() ! ActionPerformed(
             s"Bid successful for Bidder $bidderId, Auction $auctionId and a price of $price",
-            false
+            true
           )
         }
 

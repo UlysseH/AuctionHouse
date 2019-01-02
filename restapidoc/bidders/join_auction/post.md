@@ -26,10 +26,12 @@ If Bidder and Auction exist, add the Auction to the Bidder joined auction.
 
 **Content example**
 
+```json
 {
     "description": "Bidder 1 joined auction 1.",
     "success": true
 }
+```
 
 ## Error Responses
 
