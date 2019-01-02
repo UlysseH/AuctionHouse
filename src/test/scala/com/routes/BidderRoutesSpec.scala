@@ -43,7 +43,6 @@ class BidderRoutesSpec extends WordSpec with Matchers with ScalaFutures with Sca
       request ~> routes ~> check {
         status should ===(StatusCodes.Created)
         contentType should ===(ContentTypes.`application/json`)
-        //entityAs[String] should ===("""{"description":"Bidder Bob created."}""")
       }
     }
 

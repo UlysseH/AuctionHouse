@@ -48,7 +48,7 @@ Expected String as JsString, but got 12
 
 **Condition** : No Bidder exists in the system for bidderId.
 
-**Code** : `400 BAD REQUEST`
+**Code** : `404 NOT FOUND`
 
 **Content example**
 
@@ -63,7 +63,7 @@ Expected String as JsString, but got 12
 
 **Condition** : No Auction exists in the system for auctionId.
 
-**Code** : `400 BAD REQUEST`
+**Code** : `404 NOT FOUND`
 
 **Content example**
 

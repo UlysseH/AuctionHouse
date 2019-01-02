@@ -48,3 +48,10 @@
     }
 ]
 ```
+
+## Error Response
+
+**Condition** : Auction does not exist.
+
+**Code** : `404 NOT FOUND`
+

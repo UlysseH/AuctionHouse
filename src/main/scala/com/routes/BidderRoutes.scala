@@ -75,7 +75,7 @@ trait BidderRoutes extends JsonSupport {
                 case None =>
                   log.info("Auction {} does not exist", id)
                   complete(
-                    StatusCodes.BadRequest,
+                    StatusCodes.NotFound,
                     ActionPerformed(s"Auction $id does not exist", false)
                   )
                 case Some(ref) =>
@@ -88,7 +88,7 @@ trait BidderRoutes extends JsonSupport {
                     }
                     else {
                       log.info("Bidder {} does not exist", bidderId)
-                      complete((StatusCodes.BadRequest, performed))
+                      complete((StatusCodes.NotFound, performed))
                     }
                   }
               }
@@ -125,8 +125,6 @@ trait BidderRoutes extends JsonSupport {
                 )
               )
               .flatMap(o => Future(BidderAuctionHouseHistory(o)))
-
-            println(maybeBidderAuctionHistory)
 
             rejectEmptyResponse {
               complete(maybeBidderAuctionHistory)

@@ -3,45 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="6fd4e016-17cd-4ed1-90b1-90977a597c0d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapidoc/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapidoc/bidders/get.md" beforeDir="false" afterPath="$PROJECT_DIR$/restapidoc/bidders/get.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapidoc/bidders/post.md" beforeDir="false" afterPath="$PROJECT_DIR$/restapidoc/bidders/post.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapidoc/auctions/get.md" beforeDir="false" afterPath="$PROJECT_DIR$/restapidoc/auctions/get.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapidoc/bidders/join_auction/post.md" beforeDir="false" afterPath="$PROJECT_DIR$/restapidoc/bidders/join_auction/post.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/com/routes/AuctionRoutes.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com/routes/AuctionRoutes.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/com/routes/BidderRoutes.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com/routes/BidderRoutes.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/core/akka/AuctionActor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/core/akka/AuctionActor.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/core/akka/AuctionHouse.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/core/akka/AuctionHouse.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/core/akka/BidderManager.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/core/akka/BidderManager.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/core/akka/Message.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/core/akka/Message.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/com/routes/AuctionRoutes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/com/routes/AuctionRoutes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/com/routes/bidderRoutes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/com/routes/bidderRoutes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/AuctionActor$$anonfun$receive$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/AuctionActor$$anonfun$receive$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/AuctionHistory$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/AuctionHistory$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/AuctionHistory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/AuctionHistory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/AuctionHouse$$anonfun$receive$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/AuctionHouse$$anonfun$receive$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/AuctionJoined$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/AuctionJoined$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/AuctionJoined.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/AuctionJoined.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/BidderAuctionHistory$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/BidderAuctionHistory$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/BidderAuctionHistory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/BidderAuctionHistory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/BidderAuctionHouseHistory$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/BidderAuctionHouseHistory$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/BidderAuctionHouseHistory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/BidderAuctionHouseHistory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/BidderManager$$anonfun$receive$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/BidderManager$$anonfun$receive$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/BidderRelatedAuctionStatus$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/BidderRelatedAuctionStatus$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/BidderRelatedAuctionStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/BidderRelatedAuctionStatus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/CreateBidder$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/CreateBidder$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/CreateBidder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/CreateBidder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/GetAuctionHouseHistory$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/GetAuctionHouseHistory$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/GetAuctionHouseHistory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/GetAuctionHouseHistory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/GetBidder$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/GetBidder$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/GetBidder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/GetBidder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/GetBidders$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/GetBidders$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/JoinAuction$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/JoinAuction$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/JoinAuction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/JoinAuction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/Message.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/NewBid$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/NewBid$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/NewBid.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/NewBid.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/UpdateAuction$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/UpdateAuction$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/UpdateAuction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/core/akka/UpdateAuction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/scala/com/routes/AuctionRoutesSpec.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/com/routes/AuctionRoutesSpec.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/scala/com/routes/BidderRoutesSpec.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/com/routes/BidderRoutesSpec.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/com/routes/AuctionRoutes.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/com/routes/bidderRoutes.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -104,34 +73,34 @@
         <counts>
           <entry key="class" value="1" />
           <entry key="java" value="7" />
-          <entry key="md" value="13" />
+          <entry key="md" value="17" />
           <entry key="sbt" value="4" />
-          <entry key="scala" value="145" />
+          <entry key="scala" value="147" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
           <entry key="JAVA" value="7" />
-          <entry key="Markdown" value="12" />
+          <entry key="Markdown" value="16" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Scala" value="145" />
+          <entry key="Scala" value="147" />
           <entry key="sbt" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Scala Console" value="316" />
-          <entry key="md" value="1870" />
+          <entry key="md" value="2089" />
           <entry key="sbt" value="81" />
-          <entry key="scala" value="28059" />
+          <entry key="scala" value="28117" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Markdown" value="1744" />
+          <entry key="Markdown" value="1963" />
           <entry key="PLAIN_TEXT" value="126" />
-          <entry key="Scala" value="28375" />
+          <entry key="Scala" value="28433" />
           <entry key="sbt" value="81" />
         </counts>
       </usages-collector>
@@ -140,34 +109,34 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/com/routes/BidderRoutes.scala">
+        <entry file="file://$PROJECT_DIR$/src/test/scala/com/routes/AuctionRoutesSpec.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="125" column="57" selection-start-line="125" selection-start-column="57" selection-end-line="125" selection-end-column="57" />
+            <state relative-caret-position="194">
+              <caret line="48" selection-start-line="48" selection-end-line="48" />
               <folding>
-                <element signature="e#20#61#0" expanded="true" />
+                <element signature="e#20#45#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/scala/com/routes/BidderRoutesSpec.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="254">
+              <caret line="41" selection-start-line="41" selection-end-line="41" />
+              <folding>
+                <element signature="e#20#45#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/core/akka/BidderManager.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="72" column="21" lean-forward="true" selection-start-line="72" selection-start-column="21" selection-end-line="72" selection-end-column="21" />
-              <folding>
-                <element signature="e#19#75#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/com/routes/AuctionRoutes.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="82" selection-start-line="82" selection-end-line="82" />
+            <state relative-caret-position="309">
+              <caret line="55" column="26" lean-forward="true" selection-start-line="55" selection-start-column="26" selection-end-line="55" selection-end-column="26" />
               <folding>
                 <element signature="e#20#61#0" expanded="true" />
               </folding>
@@ -176,35 +145,23 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/core/akka/AuctionActor.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="45" column="7" lean-forward="true" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
-              <folding>
-                <element signature="e#19#44#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/core/akka/Message.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
-              <folding>
-                <element signature="e#19#44#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/restapidoc/bidders/post.md">
+        <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="445">
-                <caret line="54" column="19" lean-forward="true" selection-start-line="54" selection-start-column="19" selection-end-line="54" selection-end-column="19" />
+              <first_editor relative-caret-position="330">
+                <caret line="22" column="66" lean-forward="true" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="66" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/restapidoc/auctions/auction_history/get.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="311">
+                <caret line="45" column="3" selection-start-line="45" selection-start-column="3" selection-end-line="45" selection-end-column="3" />
               </first_editor>
               <second_editor />
             </state>
@@ -215,8 +172,8 @@
         <entry file="file://$PROJECT_DIR$/restapidoc/auctions/get.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="150">
-                <caret line="10" column="27" lean-forward="true" selection-end-line="50" />
+              <first_editor relative-caret-position="690">
+                <caret line="46" column="9" lean-forward="true" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
               </first_editor>
               <second_editor />
             </state>
@@ -229,18 +186,6 @@
             <state split_layout="FIRST">
               <first_editor relative-caret-position="1047">
                 <caret line="87" column="3" lean-forward="true" selection-start-line="87" selection-start-column="3" selection-end-line="87" selection-end-column="3" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/restapidoc/bidders/bid/post.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="FIRST">
-              <first_editor relative-caret-position="517">
-                <caret line="62" column="3" lean-forward="true" selection-start-line="51" selection-end-line="62" selection-end-column="3" />
               </first_editor>
               <second_editor />
             </state>
@@ -315,22 +260,23 @@
         <option value="$PROJECT_DIR$/build.sbt" />
         <option value="$PROJECT_DIR$/src/main/scala/core/akka/BidderActor.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/com/JsonSupport.scala" />
-        <option value="$PROJECT_DIR$/src/test/scala/com/routes/AuctionRoutesSpec.scala" />
-        <option value="$PROJECT_DIR$/src/test/scala/com/routes/BidderRoutesSpec.scala" />
-        <option value="$PROJECT_DIR$/restapidoc/auctions/get.md" />
         <option value="$PROJECT_DIR$/restapidoc/auctions/post.md" />
         <option value="$PROJECT_DIR$/restapidoc/bidders/get.md" />
         <option value="$PROJECT_DIR$/restapidoc/bidders/post.md" />
         <option value="$PROJECT_DIR$/src/main/scala/core/akka/Message.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/com/routes/AuctionRoutes.scala" />
-        <option value="$PROJECT_DIR$/restapidoc/bidders/join_auction/post.md" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/restapidoc/bidders/bid/post.md" />
         <option value="$PROJECT_DIR$/src/main/scala/core/akka/AuctionHouse.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/core/akka/AuctionActor.scala" />
         <option value="$PROJECT_DIR$/restapidoc/bidders/auction_house_history/get.md" />
         <option value="$PROJECT_DIR$/src/main/scala/core/akka/BidderManager.scala" />
+        <option value="$PROJECT_DIR$/restapidoc/auctions/auction_history/get.md" />
         <option value="$PROJECT_DIR$/src/main/scala/com/routes/BidderRoutes.scala" />
+        <option value="$PROJECT_DIR$/restapidoc/bidders/join_auction/post.md" />
+        <option value="$PROJECT_DIR$/restapidoc/auctions/get.md" />
+        <option value="$PROJECT_DIR$/src/test/scala/com/routes/AuctionRoutesSpec.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/com/routes/BidderRoutesSpec.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/com/routes/AuctionRoutes.scala" />
       </list>
     </option>
   </component>
@@ -464,6 +410,27 @@
               <item name="scala" type="462c0819:PsiDirectoryNode" />
               <item name="akka" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="AuctionHouse" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AuctionHouse" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AuctionHouse" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AuctionHouse" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AuctionHouse" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AuctionHouse" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -471,7 +438,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546450318024" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546452696358" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -489,7 +456,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.QuickStartServer">
+  <component name="RunManager" selected="ScalaTest.AuctionRoutesSpec">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -599,9 +566,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="ScalaTest.AuctionRoutesSpec" />
         <item itemvalue="Application.QuickStartServer" />
         <item itemvalue="ScalaTest.BidderRoutesSpec" />
-        <item itemvalue="ScalaTest.AuctionRoutesSpec" />
         <item itemvalue="Application.sandbox" />
       </list>
     </recent_temporary>
@@ -658,24 +625,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AuctionRoutesSpec - 2018.12.31 at 02h 14m 31s.xml">
-      <configuration name="AuctionRoutesSpec" configurationId="ScalaTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="AuctionRoutesSpec - 2018.12.31 at 02h 16m 13s.xml">
-      <configuration name="AuctionRoutesSpec" configurationId="ScalaTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="AuctionRoutesSpec - 2018.12.31 at 02h 16m 34s.xml">
-      <configuration name="AuctionRoutesSpec" configurationId="ScalaTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="AuctionRoutesSpec - 2018.12.31 at 02h 41m 51s.xml">
-      <configuration name="AuctionRoutesSpec" configurationId="ScalaTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="AuctionRoutesSpec - 2018.12.31 at 13h 46m 12s.xml">
-      <configuration name="AuctionRoutesSpec" configurationId="ScalaTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="AuctionRoutesSpec - 2018.12.31 at 13h 49m 04s.xml">
-      <configuration name="AuctionRoutesSpec" configurationId="ScalaTestRunConfiguration" />
-    </history-entry>
     <history-entry file="BidderRoutesSpec - 2018.12.31 at 13h 58m 12s.xml">
       <configuration name="BidderRoutesSpec" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
@@ -686,6 +635,24 @@
       <configuration name="BidderRoutesSpec" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
     <history-entry file="BidderRoutesSpec - 2018.12.31 at 15h 07m 27s.xml">
+      <configuration name="BidderRoutesSpec" configurationId="ScalaTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="AuctionRoutesSpec - 2019.01.02 at 19h 00m 22s.xml">
+      <configuration name="AuctionRoutesSpec" configurationId="ScalaTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="AuctionRoutesSpec - 2019.01.02 at 19h 01m 03s.xml">
+      <configuration name="AuctionRoutesSpec" configurationId="ScalaTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="BidderRoutesSpec - 2019.01.02 at 19h 03m 36s.xml">
+      <configuration name="BidderRoutesSpec" configurationId="ScalaTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="AuctionRoutesSpec - 2019.01.02 at 19h 05m 26s.xml">
+      <configuration name="AuctionRoutesSpec" configurationId="ScalaTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="AuctionRoutesSpec - 2019.01.02 at 19h 07m 47s.xml">
+      <configuration name="AuctionRoutesSpec" configurationId="ScalaTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="BidderRoutesSpec - 2019.01.02 at 19h 08m 46s.xml">
       <configuration name="BidderRoutesSpec" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
   </component>
@@ -827,13 +794,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/sql/Timestamp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="460" column="19" selection-start-line="460" selection-start-column="19" selection-end-line="460" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/util/Date.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="509">
@@ -999,13 +959,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/com/tests/AuctionRoutesTests.scala" />
-    <entry file="file://$PROJECT_DIR$/src/test/scala/com/routes/BidderRoutesSpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="60" column="35" selection-start-line="60" selection-start-column="35" selection-end-line="60" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/com/JsonSupport.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
@@ -1043,16 +996,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/com/routes/AuctionRoutesSpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="44" column="19" selection-start-line="44" selection-start-column="19" selection-end-line="44" selection-end-column="19" />
-          <folding>
-            <element signature="e#20#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.ivy2/cache/com.typesafe.akka/akka-http-core_2.12/srcs/akka-http-core_2.12-10.0.11-sources.jar!/akka/http/scaladsl/model/StatusCode.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="137">
@@ -1065,16 +1008,6 @@
         <state split_layout="FIRST">
           <first_editor relative-caret-position="233">
             <caret line="36" column="25" lean-forward="true" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/restapidoc/auctions/post.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="272">
-            <caret line="45" column="45" selection-start-line="45" selection-start-column="45" selection-end-line="45" selection-end-column="45" />
           </first_editor>
           <second_editor />
         </state>
@@ -1098,16 +1031,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="210">
-            <caret line="14" column="45" lean-forward="true" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="92" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/core/akka/AuctionHouse.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="157">
@@ -1118,10 +1041,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/restapidoc/bidders/bid/post.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="517">
+            <caret line="62" column="3" lean-forward="true" selection-start-line="51" selection-end-line="62" selection-end-column="3" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/restapidoc/bidders/auction_house_history/get.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="1047">
+            <caret line="87" column="3" lean-forward="true" selection-start-line="87" selection-start-column="3" selection-end-line="87" selection-end-column="3" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/core/akka/AuctionActor.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="45" column="7" lean-forward="true" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
+        <state relative-caret-position="149">
+          <caret line="35" column="35" lean-forward="true" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
           <folding>
             <element signature="e#19#44#0" expanded="true" />
           </folding>
@@ -1138,41 +1081,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/restapidoc/auctions/get.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="47" lean-forward="true" selection-start-line="22" selection-start-column="47" selection-end-line="22" selection-end-column="47" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="150">
-            <caret line="10" column="27" lean-forward="true" selection-end-line="50" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/restapidoc/bidders/bid/post.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="517">
-            <caret line="62" column="3" lean-forward="true" selection-start-line="51" selection-end-line="62" selection-end-column="3" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/restapidoc/bidders/join_auction/post.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="91">
-            <caret line="31" column="1" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/core/akka/Message.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1183,42 +1091,107 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/restapidoc/bidders/auction_house_history/get.md">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="1047">
-            <caret line="87" column="3" lean-forward="true" selection-start-line="87" selection-start-column="3" selection-end-line="87" selection-end-column="3" />
+          <first_editor relative-caret-position="330">
+            <caret line="22" column="66" lean-forward="true" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="66" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/routes/AuctionRoutes.scala">
+    <entry file="file://$PROJECT_DIR$/restapidoc/auctions/auction_history/get.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="311">
+            <caret line="45" column="3" selection-start-line="45" selection-start-column="3" selection-end-line="45" selection-end-column="3" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/core/akka/BidderManager.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="82" selection-start-line="82" selection-end-line="82" />
+        <state relative-caret-position="-531">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
           <folding>
-            <element signature="e#20#61#0" expanded="true" />
+            <element signature="e#19#75#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/com/routes/BidderRoutes.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="125" column="57" selection-start-line="125" selection-start-column="57" selection-end-line="125" selection-end-column="57" />
+        <state relative-caret-position="529">
+          <caret line="92" column="19" selection-start-line="92" selection-start-column="19" selection-end-line="92" selection-end-column="19" />
           <folding>
             <element signature="e#20#61#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/core/akka/BidderManager.scala">
+    <entry file="file://$PROJECT_DIR$/restapidoc/bidders/join_auction/post.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="990">
+            <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/restapidoc/auctions/post.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="675">
+            <caret line="45" column="45" selection-start-line="45" selection-start-column="45" selection-end-line="45" selection-end-column="45" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/restapidoc/auctions/get.md">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="47" lean-forward="true" selection-start-line="22" selection-start-column="47" selection-end-line="22" selection-end-column="47" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="690">
+            <caret line="46" column="9" lean-forward="true" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/com/routes/BidderRoutesSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="72" column="21" lean-forward="true" selection-start-line="72" selection-start-column="21" selection-end-line="72" selection-end-column="21" />
+        <state relative-caret-position="254">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
           <folding>
-            <element signature="e#19#75#0" expanded="true" />
+            <element signature="e#20#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/com/routes/AuctionRoutesSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
+          <folding>
+            <element signature="e#20#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/com/routes/AuctionRoutes.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="55" column="26" lean-forward="true" selection-start-line="55" selection-start-column="26" selection-end-line="55" selection-end-column="26" />
+          <folding>
+            <element signature="e#20#61#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -49,13 +49,13 @@ trait AuctionRoutes extends JsonSupport {
                       log.info("Created auction [{}]: {}.", auction.itemId, performed.description)
                       complete((StatusCodes.Created, performed))
                     }
-                    if (performed.description == s"Updated auction $id.") {
+                    else if (performed.description == s"Updated auction $id.") {
                       log.info("Updated auction [{}]: {}.", auction.itemId, performed.description)
                       complete((StatusCodes.OK, performed))
                     }
                     else {
-                      log.info(s"Unexpected issue with auction $id", auction.itemId, performed.description)
-                      complete((StatusCodes.NotFound, performed))
+                      log.info(s"Unexpected issue with auction [{}]: {}.", auction.itemId, performed.description)
+                      complete((StatusCodes.InternalServerError, performed))
                     }
                   }
                   else {

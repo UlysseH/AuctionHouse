@@ -44,8 +44,10 @@ class AuctionRoutesSpec extends WordSpec with Matchers with ScalaFutures with Sc
         auction1start,
         auction1end
       )
-      val auctionEntity = Marshal(auction1).to[MessageEntity].futureValue
-      val request1 = Post("/auctions").withEntity(auctionEntity)
+      val auction1Entity = Marshal(auction1).to[MessageEntity].futureValue
+      val request1 = Post("/auctions").withEntity(auction1Entity)
+
+      println(request1)
 
       val auction2 = Auction(
         "2",
@@ -72,17 +74,14 @@ class AuctionRoutesSpec extends WordSpec with Matchers with ScalaFutures with Sc
       request1 ~> routes ~> check {
         status should ===(StatusCodes.Created)
         contentType should ===(ContentTypes.`application/json`)
-        //entityAs[String] should ===("""{"description":"Auction 1 created."}""")
       }
       request2 ~> routes ~> check {
         status should ===(StatusCodes.BadRequest)
         contentType should ===(ContentTypes.`application/json`)
-        //entityAs[String] should ===("""{"description":"Auction 1 created."}""")
       }
       request3 ~> routes ~> check {
         status should ===(StatusCodes.BadRequest)
         contentType should ===(ContentTypes.`application/json`)
-        //entityAs[String] should ===("""{"description":"Auction 1 created."}""")
       }
       request4 ~> routes ~> check {
         status should ===(StatusCodes.OK)
